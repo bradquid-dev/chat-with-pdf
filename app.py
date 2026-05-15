@@ -21,7 +21,7 @@ def build_qa_chain(docs):
     embeddings = SentenceTransformerEmbeddings(model_name="all-MiniLM-L6-v2")
     vectorstore = Chroma.from_documents(docs, embeddings)
     retriever = vectorstore.as_retriever()
-    llm = ChatGoogleGenerativeAI(model="gemini-2.0-flash", temperature=0)
+    llm = ChatGoogleGenerativeAI(model="gemini-2.5-flash", temperature=0)
 
     prompt = ChatPromptTemplate.from_template("""
 Answer the question based only on the following context:
